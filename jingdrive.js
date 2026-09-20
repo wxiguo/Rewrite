@@ -194,23 +194,56 @@ if (url.includes("/user_info")) {
     $done(result ? result : {});
 } else if (url.includes("/app/launch")) {
     const data = {
-        checkProvince: false,
-        needCheckProvince: false,
-        supportProvince: [
-            "北京市",
-            "天津市",
-            "河北省"
-        ],
-        displayPoint: true,
-        useAvoid: true,
-        version: "1.8.1",
-        allowBuyVipYear: true,
-        allowShowWxPay: true,
-        allowWatchRewardVideo: true,
-        planRouteNeedVip: false,
-        allowLongPlanCount: 999,
-        allowUseCountForNotVip: 999
-    };
+	    checkProvince: false,
+	    needCheckProvince: false,
+	    supportProvince: [
+	        "北京市",
+	        "天津市",
+	        "河北省"
+	    ],
+	    displayPoint: true,
+	    useAvoid: true,
+	    version: "1.8.1",
+	    newerVersionArray: [
+	        "1.7.9",
+	        "1.8.1"
+	    ],
+	    apiBaseUrl: "http://api.jingdrive.cn/",
+	    mediaBaseUrl: "http://media.jingdrive.cn/",
+	    allPointUrl: "points",
+	    rangePolygonUrl: "rangePolygon",
+	    entranceAndExitUrl: "entrance_exit",
+	    limitedRuleUrl: "limited_rule",
+	    wxPayUrl: "wx/prepay",
+	    wxCheckOrderUrl: "wx/checkOrder",
+	    buyIdentifiers: "buy_identifiers",
+	    inBuyUrl: "in_buy",
+	    inBuyCopyUrl: "in_buy_copy",
+	    freeTicketUrl: "free_ticket",
+	    userInfoUrl: "user_info",
+	    appStartUrl: "app_start",
+	    serverConnectUrl: "server_connect",
+	    needInfoUrl: "need_info",
+	    commentUrl: "point/getComment",
+	    longPlanRouteUrl: "planRoute",
+	    rewardInfoUrl: "getRewardInfo",
+	    exchangeRewardUrl: "exchangeReward",
+	    pushAliasUrl: "push/alias",
+	    planRecordSave: "planRecord/save",
+	    planRecordInvalid: "planRecord/invalided",
+	    planRecordDeleteBatch: "planRecord/delete/batch",
+	    planRecordCollect: "planRecord/collect",
+	    planRecordMerge: "planRecord/merge",
+	    planRecordGet: "planRecord/get",
+	    planRecordCopy: "planRecord/copy",
+	    planRecordRadarAlert: "planRecord/radarAlert",
+	    allowBuyVipYear: true,
+	    allowShowWxPay: true,
+	    allowWatchRewardVideo: true,
+	    planRouteNeedVip: false,
+	    allowLongPlanCount: 999,
+	    allowUseCountForNotVip: 999
+	};
     const result = makeResponse(data);
     $done(result ? result : {});
 } else {
