@@ -15,71 +15,70 @@ hostname = api.jingdrive.cn
 
 *************************************/
 
-/*
- * Quantumult X
- * JingDrive API Mock
- *
- */
 
 const url = $request.url || "";
-const method = $request.method || "";
 const body = $response.body || "";
+const KEY = "1234567890123456";
+const IV  = "1234567890123456";
 
-function jsonResponse(obj) {
+function response(data) {
+    const encryptedData = encryptTestData(
+        JSON.stringify(data)
+    );
     return {
-        body: JSON.stringify(obj)
+        body: JSON.stringify({
+            code: 200,
+            message: "请求成功",
+            data: encryptedData
+        })
     };
 }
 
-try {
+/*
+ * ------------------------------------------------
+ * /user_info
+ * ------------------------------------------------
+ */
+if (url.includes("/user_info")) {
+    const data = {
+        status: 0,
+        isVip: true,
+        vipExpiresDate: "2099-12-31 23:59:59",
+        reward_amount: 0,
+        isNewer: false
+    };
+    $done(
+        response(data)
+    );
+    return;
+}
 
-    /*
-     * /user_info
-     * 模拟用户信息
-     */
-    if (url.includes("/user_info")) {
-        const result = {
-            code: 200,
-            status: 0,
-            isVip: true,
-            vipExpiresDate: "2099-12-31 23:59:59",
-            reward_amount: 0,
-            isNewer: false
-        };
-        $done(jsonResponse(result));
-        return;
-    }
-
-    /*
-     * /app/launch
-     * 模拟 App 配置
-     */
-    if (url.includes("/app/launch")) {
-        const result = {
-            code: 200,
-            message: "请求成功",
-            data: {
-                checkProvince: false,
-                needCheckProvince: false,
-                supportProvince: [
-                    "北京市",
-                    "天津市",
-                    "河北省"
-                ],
-                displayPoint: true,
-                useAvoid: true,
-                version: "1.8.1",
-                allowBuyVipYear: true,
-                allowShowWxPay: true,
-                allowWatchRewardVideo: true,
-                planRouteNeedVip: false,
-                allowLongPlanCount: 999,
-                allowUseCountForNotVip: 999
-            }
-        };
-        $done(jsonResponse(result));
-        return;
-    }
-} catch (e) {
-    $done({});
+/*
+ * ------------------------------------------------
+ * /app/launch
+ * ------------------------------------------------
+ */
+if (url.includes("/app/launch")) {
+    const data = {
+        checkProvince: false,
+        needCheckProvince: false,
+        supportProvince: [
+            "北京市",
+            "天津市",
+            "河北省"
+        ],
+        displayPoint: true,
+        useAvoid: true,
+        version: "1.8.1",
+        allowBuyVipYear: true,
+        allowShowWxPay: true,
+        allowWatchRewardVideo: true,
+        planRouteNeedVip: false,
+        allowLongPlanCount: 999,
+        allowUseCountForNotVip: 999
+    };
+    $done(
+        response(data)
+    );
+    return;
 }
