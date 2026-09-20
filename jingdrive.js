@@ -5,11 +5,11 @@
 使用声明：⚠️仅供参考，🈲转载与售卖！
 
 [rewrite_local]
-^https?://test_api\.jingdrive\.cn/user_info.* url script-response-body https://raw.githubusercontent.com/wxiguo/Rewrite/main/jingdrive.js
-^https?://test_api\.jingdrive\.cn/app/launch.* url script-response-body https://raw.githubusercontent.com/wxiguo/Rewrite/main/jingdrive.js
+^https?://api\.jingdrive\.cn/user_info.* url script-response-body https://raw.githubusercontent.com/wxiguo/Rewrite/main/jingdrive.js
+^https?://api\.jingdrive\.cn/app/launch.* url script-response-body https://raw.githubusercontent.com/wxiguo/Rewrite/main/jingdrive.js
 
 [mitm]
-hostname = test_api.jingdrive.cn
+hostname = api.jingdrive.cn
 
 *************************************/
 
