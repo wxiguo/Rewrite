@@ -34,6 +34,10 @@ function response(data) {
     };
 }
 
+function encryptTestData(text) {
+    return text;
+}
+
 /*
  * ------------------------------------------------
  * /user_info
