@@ -332,7 +332,7 @@ function makeResponse(data) {
 // ------------------------------------------------
 if (url.includes("/user_info")) {
     const data = {
-		code: 200,
+        code: 200,
         status: 1,
         vipExpiresDate: "4102415999000",
         reward_amount: 0,
