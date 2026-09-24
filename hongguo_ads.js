@@ -5,9 +5,17 @@
 适用版本：7.3.7
 使用声明：⚠️仅供参考，🈲转载与售卖！
 
+【主防线 · 推荐】QuantumultX 用 REJECT，在连接层拒绝，不需要 MITM 解密，
+因此不受 App 的 QUIC / 证书 pinning 影响（脚本方案会受）：
+
+[filter_local]
+host, ad.zijieapi.com, reject
+
+【可选 · 次级】若要返回「合法的无广告响应」而不是直接拒绝，
+再启用下面的 response-body 改写（需要 MITM 解密成功）：
+
 [rewrite_local]
-^https?://ad\.zijieapi\.com/api/ad/v1/.* url script-response-body https://raw.githubusercontent.com/wxiguo/Rewrite/main/hongguo_ads.js
-^https?://ad\.zijieapi\.com/api/incentive/marketing/done.* url script-response-body https://raw.githubusercontent.com/wxiguo/Rewrite/main/hongguo_ads.js
+^https?://ad\.zijieapi\.com/ url script-response-body https://raw.githubusercontent.com/wxiguo/Rewrite/main/hongguo_ads.js
 
 [mitm]
 hostname = ad.zijieapi.com
